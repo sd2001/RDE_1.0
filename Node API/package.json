@@ -1,0 +1,20 @@
+{
+  "name": "node-api",
+  "version": "1.0.0",
+  "description": "CRUD API for note taking app",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "author": "Swarnabha",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.3",
+    "mongoose-uuid2": "^2.3.0",
+    "nodemon": "^2.0.7",
+    "uuid": "^8.3.2"
+  }
+}
