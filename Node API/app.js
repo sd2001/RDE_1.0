@@ -4,11 +4,10 @@ const mongoose = require('mongoose')
 require('dotenv/config')
 
 const notes = require('./routes/notes')
-const notes = require('./routes/users')
+const users = require('./routes/users')
 const PORT = process.env.PORT || 8000
 
-
-
+// Connection to Database
 mongoose.connect(process.env.MONGO,
 	{
 		useNewUrlParser: true,
@@ -18,6 +17,8 @@ mongoose.connect(process.env.MONGO,
 )
 
 app.listen(PORT, () => console.log("Server Up and Running!"))
+//Middleware
 app.use(express.json())
+// Routes
 app.use('/notes', notes)
-app.use('/users', notes)
+app.use('/users', users)
