@@ -4,6 +4,7 @@ const router = express.Router()
 
 var Note = Schema.note_model
 
+// Get all the notes available in Database
 router.get('/', async (req, res) => {
 	try {
 		const notes = await Note.find({})
@@ -15,11 +16,11 @@ router.get('/', async (req, res) => {
 		else res.send(notes)
 	}
 	catch (err) {
-		res.status(404).send(err)
+		res.status(500).send(err)
 	}
 
 })
-
+// Create a new Note
 router.post('/create', async (req, res) => {
 	const note = new Note({
 		userid: req.body.userid,
@@ -36,7 +37,7 @@ router.post('/create', async (req, res) => {
 		res.status(406).json({ message: error })
 	}
 })
-
+//Get a particular Note
 router.get('/:pk', async (req, res) => {
 	try {
 		const note = await Note.findById(req.params.pk)
@@ -52,7 +53,7 @@ router.get('/:pk', async (req, res) => {
 		res.status(500).json({ message: err })
 	}
 })
-
+// Get a list of a particular user's all notes
 router.get('/user/:pk', async (req, res) => {
 	try {
 		const usernote = await Note.find({ userid: req.params.pk })
@@ -69,6 +70,7 @@ router.get('/user/:pk', async (req, res) => {
 	}
 })
 
+// Update a particular Note
 router.put('/:pk', async (req, res) => {
 	{
 		if (!req.body) {
@@ -87,6 +89,7 @@ router.put('/:pk', async (req, res) => {
 	}
 })
 
+// Delete a particular Note
 router.delete('/:pk', async (req, res) => {
 	try {
 		const deleted = await Note.remove({ _id: req.params.pk })
@@ -95,7 +98,7 @@ router.delete('/:pk', async (req, res) => {
 				message: "Data Not Found"
 			});
 		}
-		res.status(200).send(deleted)
+		else res.status(200).send(deleted)
 	}
 	catch (err) {
 		res.status(500).json({ message: err })
