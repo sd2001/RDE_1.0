@@ -6,7 +6,7 @@
 
   **Time to open your terminal🛠️:**
 
-  - git clone https://github.com/<username>/RDE_1.0.git
+  - git clone https://github.com/[username]/RDE_1.0.git
   - cd "Node API"
   - npm install
   - npm start
