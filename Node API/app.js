@@ -13,7 +13,7 @@ mongoose.connect(process.env.MONGO,
 		useNewUrlParser: true,
 		useUnifiedTopology: true
 	},
-	() => console.log("Connection established with Database")
+	() => console.log("Connection Established with Database")
 )
 
 app.listen(PORT, () => console.log("Server Up and Running!"))
