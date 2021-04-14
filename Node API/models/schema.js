@@ -21,7 +21,7 @@ const NoteSchema = mongoose.Schema({
 })
 
 const UserSchema = mongoose.Schema({
-	id: {
+	_id: {
 		type: String,
 		default: uuidv4()
 	},
